@@ -49,7 +49,9 @@ def open_file():
     global img
     l_frame.filename = filedialog.askopenfilename(title="upload file")
     lab = Label(l_frame, text=l_frame.filename).pack()
-    img = ImageTk.PhotoImage(Image.open(l_frame.filename))
+    img = Image.open(l_frame.filename)
+    img = img.resize((450, 450), Image.ANTIALIAS)
+    img = ImageTk.PhotoImage(img)
     img_lab = Label(l_frame, image=img).pack()
 
 
